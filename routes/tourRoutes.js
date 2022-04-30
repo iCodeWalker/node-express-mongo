@@ -7,7 +7,7 @@ const tourRouter = express.Router();
 
 // ----- Middleware runs when specific param is in the url. (Param middleware)
 
-tourRouter.param('id', tourController.checkID);
+// tourRouter.param('id', tourController.checkID);
 
 // create a checkbody middleware
 // check if body contains the name and price property.
@@ -19,7 +19,8 @@ app.use('/api/v1/tours', tourRouter);
 tourRouter
   .route('/')
   .get(tourController.getAllTours)
-  .post(tourController.checkBody, tourController.addTour);
+  .post(tourController.addTour);
+// .post(tourController.checkBody, tourController.addTour);
 tourRouter
   .route('/:id')
   .get(tourController.getTour)
